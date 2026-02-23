@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>طبیعت زیبا 🌿</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(#a0e7e5, #b4f8c8);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: #2b593b;
+      cursor: default;
+    }
+
+    h1 {
+      position: absolute;
+      font-size: 2.5em;
+      text-align: center;
+      z-index: 10;
+      animation: swing 4s infinite alternate;
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+
+    .leaf {
+      position: absolute;
+      pointer-events: none;
+      font-size: 24px;
+      animation: floatLeaf linear infinite;
+    }
+
+    @keyframes floatLeaf {
+      0% { transform: translateY(0) scale(0); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>سلام غزل! به دنیای طبیعت خوش آمدی 🌿🍃</h1>
+
+  <script>
+    const symbols = ['🍃','🌿','🍂','🌱','🌸'];
+
+    function createLeaf() {
+      const leaf = document.createElement("div");
+      leaf.className = "leaf";
+      leaf.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+      leaf.style.left = Math.random() * window.innerWidth + "px";
+      leaf.style.top = window.innerHeight + "px";
+      leaf.style.color = `hsl(${Math.random()*120 + 90}, 60%, 50%)`;
+      leaf.style.fontSize = Math.random()*30 + 15 + "px";
+      leaf.style.animationDuration = (Math.random()*5 + 3) + "s";
+
+      document.body.appendChild(leaf);
+      setTimeout(() => leaf.remove(), 8000);
+    }
+
+    // هر 300 میلی‌ثانیه یک برگ ایجاد کن
+    setInterval(createLeaf, 300);
+  </script>
+</body>
+</html>
